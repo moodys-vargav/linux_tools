@@ -1,0 +1,17 @@
+repos:
+  - repo: ssh://git@github.com/pre-commit/pre-commit
+    rev: v2.12.1
+    hooks:
+      - id: validate_manifest
+
+  - repo: ssh://git@github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: ssh://git@github.com/adrienverge/yamllint.git
+    rev: v1.26.1
+    hooks:
+      - id: yamllint
+        args: [-c=.yamllint.yaml]

@@ -1,0 +1,43 @@
+---
+#
+# yamllint does not only  check  for  syntax validity, but for weirdnesses
+# like key repetition and cosmetic problems such as lines length, trailing
+# spaces, indentation, etc
+# Source: http://yamllint.readthedocs.io/en/latest/
+#
+# yamllint -c yamllint.conf file.yaml
+#
+
+extends: default
+
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+
+# For all rules
+ignore: |
+  .github/workflows/*
+
+rules:
+  indentation:
+    spaces: 2
+  trailing-spaces: disable
+  colons:
+    max-spaces-after: 5
+    max-spaces-before: 10
+  line-length:
+    max: 120
+  empty-lines:
+    max-end: 2
+  braces:
+    max-spaces-inside: 2
+  truthy:
+    allowed-values:
+      - 'False'
+      - 'True'
+      - 'Yes'
+      - 'No'
+  document-start:
+    ignore: |
+      .pre-commit-config.yaml

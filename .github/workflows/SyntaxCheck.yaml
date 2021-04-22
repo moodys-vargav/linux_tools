@@ -1,0 +1,33 @@
+name: Syntax Check
+
+on:
+  push:
+
+
+jobs:
+  Linting0:
+    name: Linting Ansible playbooks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Linting Ansible playbooks
+        uses: ./.github/actions/ansible-lint
+        with:
+          args: "-c .ansible-lint.yaml"
+
+  Linting1:
+    name: Linting YAML files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Linting YAML files
+        uses: ./.github/actions/yaml-lint
+        with:
+          config_file: .yamllint.yaml
+          format: colored
