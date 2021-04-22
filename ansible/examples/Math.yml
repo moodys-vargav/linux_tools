@@ -1,0 +1,10 @@
+---
+
+- hosts: localhost
+  gather_facts: False
+  become: False
+  tasks:
+    - debug:
+        msg: "addition {{ 4 + 3 }}"  # Ansible addition 7
+    - debug:
+        msg: "multiplication {{ 4 * 3 }}"  # multiplication 12

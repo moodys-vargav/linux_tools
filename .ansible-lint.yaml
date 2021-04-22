@@ -1,0 +1,8 @@
+---
+exclude_paths:
+  - .github
+skip_list:
+  # 701: meta/main.yml should contain relevant info
+  - 'meta-no-info'
+  # 703: meta/main.yml default values should be changed
+  - 'meta-incorrect'
